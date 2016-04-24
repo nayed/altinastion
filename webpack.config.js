@@ -5,7 +5,7 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 config = {
-    entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'app.jsx')],
+    entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'app/app.jsx')],
     resolve: {
         alias: {
           'react': pathToReact
