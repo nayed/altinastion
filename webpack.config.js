@@ -2,9 +2,10 @@ var path = require('path')
 var node_modules = path.resolve(__dirname, 'node_modules')
 var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 config = {
-    entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'app/main.jsx')],
+    entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'app.jsx')],
     resolve: {
         alias: {
           'react': pathToReact
@@ -22,6 +23,10 @@ config = {
         new webpack.ProvidePlugin({
             'React':        'react',
             'ReactDOM':     'react-dom',
+        }),
+        new HtmlWebpackPlugin({
+            template: 'index.html',
+            appMountId: 'app'
         })
     ],
     module: {
